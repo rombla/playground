@@ -66,8 +66,28 @@
     </script>
     <script>
       function initEmbeddedMessaging() {
-        window.addEventListener("onEmbeddedMessagingReady", (event) => {
+        window.addEventListener("onEmbeddedMessagingButtonCreated", (event) => {
           console.log("Salesforce messenger is ready");
+
+          embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+            "_firstName": {
+              "value": "Jane",
+              "isEditableByEndUser": true
+            },
+            "_lastName": {
+              "value": "Doe",
+              "isEditableByEndUser": true
+            },
+            "_email": {
+              "value": "jane.doe@example.com",
+              "isEditableByEndUser": true
+            },
+            "_subject": {
+              "value": "I need help!",
+              "isEditableByEndUser": true
+            }
+          });
+
           embeddedservice_bootstrap.utilAPI.launchChat();
         });
       }
