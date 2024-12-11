@@ -43,6 +43,11 @@
         api_base: "https://api-iam.intercom.io",
         app_id: "k8ol8ra9",
         handoff_with_javascript: () => {
+          window.addEventListener("onEmbeddedMessagingReady", (event) => {
+            console.log("Salesforce messenger is ready");
+            embeddedservice_bootstrap.utilAPI.launchChat();
+          });
+
           try {
             embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
       
