@@ -1,9 +1,9 @@
 <!doctype html>
 <html>
   <head>
-    <title>Fin Salesforce demo</title>
+    <title>Romain's messenger</title>
     <meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
@@ -27,37 +27,39 @@
         window.localStorage.clear();
         window.sessionStorage.clear();
         window.location.reload();
+        if (window.Intercom) {
+          window.Intercom('shutdown');
+
+        }
 
       }
     </script>
   </head>
   <body class="p-6 flex flex-col flex-1 items-center justify-center min-h-screen bg-cover" style="background-image: url('https://downloads.intercomcdn.com/i/o/1051523575/8c16c6bb97ae791131ead20c/blur.jpg')">
     <div class="flex flex-col space-y-2 items-center">
+      <span class="text mt-4"> [Prod] Romain' awesome test workspace messenger</span>
       <div>
         <img src="https://static.intercomassets.com/assets/default-avatars/fin/128-6a5eabbb84cc2b038b2afc6698ca0a974faf7adc9ea9f0fb3c3e78ac12543bc5.png" height="50" width="50"  >
       </div>
       <button class="bg-black text-white p-2 m-2 rounded hover:bg-opacity-75" onclick="reset()">Reset</button>
-    </div>
+    </div>    
+    
+    <script>
+      window.intercomSettings = {
+        api_base: "https://api-iam.intercom.io",
+        app_id: "x8uwqg07",
+        user_id: "123",
+        name: "Production User",
+        email: "production-test-user@email.com",
+        created_at: 1718000000,
+      };
+    </script>
+    
+    
+    <script>
+      // We pre-filled your app ID in the widget URL: 'https://widget.intercom.io/widget/x8uwqg07'
+      (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/x8uwqg07';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+    </script>
 
-		<script type='text/javascript'>
-			function initEmbeddedMessaging() {
-				try {
-					embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-		
-					embeddedservice_bootstrap.init(
-						'00DWU000006yBht',
-						'Support',
-						'https://intercom95-dev-ed.develop.my.site.com/ESWSupport1721394454693',
-						{
-							scrt2URL: 'https://intercom95-dev-ed.develop.my.salesforce-scrt.com'
-						}
-					);
-				} catch (err) {
-					console.error('Error loading Embedded Messaging: ', err);
-				}
-			};
-		</script>
-		<script type='text/javascript' src='https://intercom95-dev-ed.develop.my.site.com/ESWSupport1721394454693/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>		
-			
   </body>
 </html>
